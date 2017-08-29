@@ -112,8 +112,8 @@ var AppRoutingModule = (function () {
 }());
 AppRoutingModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
-        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forRoot(routes)],
-        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]]
+        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */].forRoot(routes)],
+        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */]]
     })
 ], AppRoutingModule);
 
@@ -343,8 +343,8 @@ var AuthenticationRoutingModule = (function () {
 }());
 AuthenticationRoutingModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
-        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forChild(routes)],
-        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]]
+        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */].forChild(routes)],
+        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */]]
     })
 ], AuthenticationRoutingModule);
 
@@ -519,7 +519,7 @@ LoginComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/authentication/login/login.component.html"),
         styles: [__webpack_require__("../../../../../src/app/authentication/authentication.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_material__["e" /* MdSnackBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_material__["e" /* MdSnackBar */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_material__["e" /* MdSnackBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_material__["e" /* MdSnackBar */]) === "function" && _c || Object])
 ], LoginComponent);
 
 var _a, _b, _c;
@@ -623,7 +623,7 @@ RegistrationComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/authentication/registration/registration.component.html"),
         styles: [__webpack_require__("../../../../../src/app/authentication/authentication.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5__auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_material__["e" /* MdSnackBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_material__["e" /* MdSnackBar */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5__auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_material__["e" /* MdSnackBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_material__["e" /* MdSnackBar */]) === "function" && _c || Object])
 ], RegistrationComponent);
 
 var _a, _b, _c;
@@ -763,7 +763,7 @@ var _a;
 /***/ "../../../../../src/app/dashboard/common/products/products.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\r\n  <div class=\"autocompleate-wrapper\">\r\n    <form [formGroup]=\"searchForm\" (ngSubmit)=\"submit()\">\r\n      <div formArrayName=\"searchParams\">\r\n        <div class=\"row\"\r\n              *ngFor=\"let iCtrl of searchForm.get('searchParams').controls; let i = index\"\r\n              [formGroupName]=\"i\">\r\n          <div class=\"col-10\">\r\n            <md-input-container>\r\n              <input mdInput placeholder=\"Название товара\" [mdAutocomplete]=\"auto\" type=\"text\"\r\n                     formControlName=\"name\">\r\n            </md-input-container>\r\n\r\n            <md-autocomplete #auto=\"mdAutocomplete\">\r\n              <md-option *ngFor=\"let value of filteredValue | async\" [value]=\"value\">\r\n                {{ value }}\r\n              </md-option>\r\n            </md-autocomplete>\r\n          </div>\r\n\r\n          <div class=\"col-2\">\r\n            <md-input-container>\r\n              <input mdInput type=\"number\" placeholder=\"Кол-во\" formControlName=\"amount\">\r\n            </md-input-container>\r\n          </div>\r\n\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"row justify-content-center\">\r\n        <div class=\"col-6\">\r\n          <button md-button class=\"auth-btn\" type=\"submit\" [disabled]=\"!searchForm.valid\" [ngClass]=\"{ 'btn-disabled': !searchForm.valid }\">\r\n            Поиск\r\n          </button>\r\n        </div>\r\n        <div class=\"col-3\">\r\n          <button md-button class=\"auth-btn\" type=\"button\" (click)=\"addParam()\"\r\n                  [disabled]=\"!searchForm.valid\" [ngClass]=\"{ 'btn-disabled': !searchForm.valid }\">Добавить фильтр</button>\r\n        </div>\r\n      </div>\r\n    </form>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"container-fluid\">\r\n  <div class=\"autocompleate-wrapper\">\r\n    <form [formGroup]=\"searchForm\" (ngSubmit)=\"submit()\">\r\n      <div formArrayName=\"searchParams\">\r\n        <div class=\"row\"\r\n              *ngFor=\"let iCtrl of searchForm.controls['searchParams'].controls; let i = index\"\r\n              [formGroupName]=\"i\">\r\n          <div class=\"col-10\">\r\n            <md-input-container>\r\n              <input mdInput placeholder=\"Название товара\" [mdAutocomplete]=\"auto\" type=\"text\"\r\n                     formControlName=\"name\">\r\n            </md-input-container>\r\n\r\n            <md-autocomplete #auto=\"mdAutocomplete\">\r\n              <md-option *ngFor=\"let value of filteredValue | async\" [value]=\"value\">\r\n                {{ value }}\r\n              </md-option>\r\n            </md-autocomplete>\r\n          </div>\r\n\r\n          <div class=\"col-2\">\r\n            <md-input-container>\r\n              <input mdInput type=\"number\" placeholder=\"Кол-во\" formControlName=\"amount\">\r\n            </md-input-container>\r\n          </div>\r\n\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"row justify-content-center\">\r\n        <div class=\"col-6\">\r\n          <button md-button class=\"auth-btn\" type=\"submit\" [disabled]=\"!searchForm.valid\" [ngClass]=\"{ 'btn-disabled': !searchForm.valid }\">\r\n            Поиск\r\n          </button>\r\n        </div>\r\n        <div class=\"col-3\">\r\n          <button md-button class=\"auth-btn\" type=\"button\" (click)=\"addParam()\"\r\n                  [disabled]=\"!searchForm.valid\" [ngClass]=\"{ 'btn-disabled': !searchForm.valid }\">Добавить фильтр</button>\r\n        </div>\r\n      </div>\r\n    </form>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -968,10 +968,174 @@ var _a;
 
 /***/ }),
 
+/***/ "../../../../../src/app/dashboard/common/storages/storage-details/storage-details.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"col-12 row\">\r\n  <!-- Storage info -->\r\n  <div class=\"col-xl-3 col-lg-4 col-md-6\">\r\n    <div class=\"card text-center\">\r\n      <img class=\"card-img-top\" [src]=\"storage.imagePath\" alt=\"Storage image\">\r\n      <div class=\"card-body\">\r\n        <h5>{{ storage.adress }}</h5>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <!-- // Storage info -->\r\n  <!-- Description -->\r\n  <div class=\"col-xl-9 col-lg-8 col-md-6\">\r\n    <div class=\"card\">\r\n      <div class=\"card-body\">\r\n        <h5 class=\"card-title\">Товары на складе</h5>\r\n        <hr>\r\n        <!-- Table -->\r\n        <div class=\"example-container mat-elevation-z8\">\r\n          <div class=\"example-header\">\r\n            <md-input-container floatPlaceholder=\"never\">\r\n              <input mdInput #filter placeholder=\"Название продукта\" value=\"\">\r\n            </md-input-container>\r\n          </div>\r\n\r\n          <md-table #table [dataSource]=\"dataSource\">\r\n            <!-- Name column -->\r\n            <ng-container cdkColumnDef=\"name\">\r\n              <md-header-cell *cdkHeaderCellDef> Название </md-header-cell>\r\n              <md-cell *cdkCellDef=\"let row\"> {{row.name}} </md-cell>\r\n            </ng-container>\r\n            <!-- // Name column -->\r\n\r\n            <!-- Count column -->\r\n            <ng-container cdkColumnDef=\"count\">\r\n              <md-header-cell *cdkHeaderCellDef> Количество </md-header-cell>\r\n              <md-cell *cdkCellDef=\"let row\"> {{row.count}} </md-cell>\r\n            </ng-container>\r\n            <!-- // Count column -->\r\n            <md-header-row *cdkHeaderRowDef=\"displayedColumns\"></md-header-row>\r\n            <md-row *cdkRowDef=\"let row; columns: displayedColumns;\"></md-row>\r\n          </md-table>\r\n        </div>\r\n        <!-- // Table -->\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <!-- // Description -->\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/dashboard/common/storages/storage-details/storage-details.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".card {\n  margin: 1rem 0; }\n\na {\n  color: black; }\n\na:hover {\n  text-decoration: none;\n  color: #1e88e5; }\n\n/* Structure */\n.example-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  max-height: 700px; }\n\n.example-header {\n  min-height: 64px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  padding-left: 24px;\n  font-size: 20px; }\n\n.example-header {\n  min-height: 64px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: baseline;\n      -ms-flex-align: baseline;\n          align-items: baseline;\n  padding: 8px 24px 0;\n  font-size: 20px;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between; }\n\n.mat-input-container {\n  font-size: 14px;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  margin-left: 32px; }\n\n.mat-table {\n  overflow: auto; }\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/dashboard/common/storages/storage-details/storage-details.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StorageDetailsComponent; });
+/* unused harmony export ExampleDataSource */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_cdk__ = __webpack_require__("../../../cdk/@angular/cdk.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject__ = __webpack_require__("../../../../rxjs/BehaviorSubject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__ = __webpack_require__("../../../../rxjs/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_startWith__ = __webpack_require__("../../../../rxjs/add/operator/startWith.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_startWith___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_startWith__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_merge__ = __webpack_require__("../../../../rxjs/add/observable/merge.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_merge___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_merge__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_debounceTime__ = __webpack_require__("../../../../rxjs/add/operator/debounceTime.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_debounceTime__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__("../../../../rxjs/add/operator/distinctUntilChanged.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_add_operator_distinctUntilChanged___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_rxjs_add_operator_distinctUntilChanged__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_observable_fromEvent__ = __webpack_require__("../../../../rxjs/add/observable/fromEvent.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_add_observable_fromEvent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_rxjs_add_observable_fromEvent__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__storage_service__ = __webpack_require__("../../../../../src/app/dashboard/common/storages/storage.service.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+// Services
+
+var StorageDetailsComponent = (function () {
+    function StorageDetailsComponent(storageService, route) {
+        this.storageService = storageService;
+        this.route = route;
+        this.displayedColumns = ['name', 'count'];
+    }
+    StorageDetailsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.params.subscribe(function (params) {
+            _this.storage = _this.storageService.getStorage(params['id']);
+        });
+        this.dataSource = new ExampleDataSource(this.storage.products);
+        __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__["Observable"].fromEvent(this.filter.nativeElement, 'keyup')
+            .debounceTime(150)
+            .distinctUntilChanged()
+            .subscribe(function () {
+            if (!_this.dataSource) {
+                return;
+            }
+            _this.dataSource.filter = _this.filter.nativeElement.value;
+        });
+    };
+    return StorageDetailsComponent;
+}());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_17" /* ViewChild */])('filter'),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* ElementRef */]) === "function" && _a || Object)
+], StorageDetailsComponent.prototype, "filter", void 0);
+StorageDetailsComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-storage-details',
+        template: __webpack_require__("../../../../../src/app/dashboard/common/storages/storage-details/storage-details.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/dashboard/common/storages/storage-details/storage-details.component.scss")]
+    }),
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_11__storage_service__["a" /* StorageService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__storage_service__["a" /* StorageService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object])
+], StorageDetailsComponent);
+
+/**
+* Data source to provide what data should be rendered in the table. Note that the data source
+* can retrieve its data in any way. In this case, the data source is provided a reference
+* to a common data base, ExampleDatabase. It is not the data source's responsibility to manage
+* the underlying data. Instead, it only needs to take the data and send the table exactly what
+* should be rendered.
+*/
+var ExampleDataSource = (function (_super) {
+    __extends(ExampleDataSource, _super);
+    function ExampleDataSource(_data) {
+        var _this = _super.call(this) || this;
+        _this._data = _data;
+        _this._filterChange = new __WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject__["BehaviorSubject"]('');
+        return _this;
+    }
+    Object.defineProperty(ExampleDataSource.prototype, "filter", {
+        get: function () { return this._filterChange.value; },
+        set: function (filter) { this._filterChange.next(filter); },
+        enumerable: true,
+        configurable: true
+    });
+    /** Connect function called by the table to retrieve one stream containing the data to render. */
+    ExampleDataSource.prototype.connect = function () {
+        // const displayDataChanges = [
+        //   this._data.dataChange,
+        //   this._filterChange,
+        // ];
+        var _this = this;
+        return __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__["Observable"].merge(this._filterChange).map(function () {
+            return _this._data.slice().filter(function (item) {
+                var searchStr = (item.name).toLowerCase();
+                return searchStr.indexOf(_this.filter.toLowerCase()) !== -1;
+            });
+        });
+    };
+    ExampleDataSource.prototype.disconnect = function () { };
+    return ExampleDataSource;
+}(__WEBPACK_IMPORTED_MODULE_2__angular_cdk__["o" /* DataSource */]));
+
+var _a, _b, _c;
+//# sourceMappingURL=storage-details.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/dashboard/common/storages/storage-item/storage-item.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card text-center\" >\r\n  <a routerLink=\".\">\r\n    <div class=\"card-body\">\r\n      <h5>{{ storage.adress }}</h5>\r\n    </div>\r\n    <img class=\"card-img-bottom\" [src]=\"storage.imagePath\" alt=\"Storage image\">\r\n  </a>\r\n</div>\r\n\r\n"
+module.exports = "<div class=\"card text-center\" >\r\n  <a [routerLink]=\"[storage.id, 'details']\">\r\n    <div class=\"card-body\">\r\n      <h5>{{ storage.adress }}</h5>\r\n    </div>\r\n    <img class=\"card-img-bottom\" [src]=\"storage.imagePath\" alt=\"Storage image\">\r\n  </a>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -1062,6 +1226,9 @@ var StorageService = (function () {
     }
     StorageService.prototype.getStorages = function () {
         return __WEBPACK_IMPORTED_MODULE_1__fake_data_fake_storages__["a" /* default */];
+    };
+    StorageService.prototype.getStorage = function (id) {
+        return __WEBPACK_IMPORTED_MODULE_1__fake_data_fake_storages__["a" /* default */].find(function (s) { return s.id === id; });
     };
     StorageService.prototype.getStoragesAdress = function () {
         var adresses = new Array();
@@ -1167,6 +1334,7 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_profile_profile_component__ = __webpack_require__("../../../../../src/app/dashboard/common/profile/profile.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__common_storages_storages_component__ = __webpack_require__("../../../../../src/app/dashboard/common/storages/storages.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__common_products_products_component__ = __webpack_require__("../../../../../src/app/dashboard/common/products/products.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__common_storages_storage_details_storage_details_component__ = __webpack_require__("../../../../../src/app/dashboard/common/storages/storage-details/storage-details.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1182,6 +1350,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var routes = [
     {
         path: '', canActivate: [__WEBPACK_IMPORTED_MODULE_2__infrastructure_guards_auth_guard_service__["a" /* AuthGuard */]], children: [
@@ -1189,6 +1358,7 @@ var routes = [
             { path: 'dashboard', component: __WEBPACK_IMPORTED_MODULE_3__dashboard_component__["a" /* DashboardComponent */], children: [
                     { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_4__common_profile_profile_component__["a" /* ProfileComponent */] },
                     { path: 'storages', component: __WEBPACK_IMPORTED_MODULE_5__common_storages_storages_component__["a" /* StoragesComponent */] },
+                    { path: 'storages/:id/details', component: __WEBPACK_IMPORTED_MODULE_7__common_storages_storage_details_storage_details_component__["a" /* StorageDetailsComponent */] },
                     { path: 'products', component: __WEBPACK_IMPORTED_MODULE_6__common_products_products_component__["a" /* ProductsComponent */] }
                 ] },
         ]
@@ -1201,8 +1371,8 @@ var DashboardRoutingModule = (function () {
 }());
 DashboardRoutingModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
-        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forRoot(routes)],
-        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]]
+        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */].forRoot(routes)],
+        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */]]
     })
 ], DashboardRoutingModule);
 
@@ -1279,24 +1449,27 @@ DashboardComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__infrastructure_pipes_filter_pipe__ = __webpack_require__("../../../../../src/app/infrastructure/pipes/filter.pipe.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__dashboard_shared_shared_module__ = __webpack_require__("../../../../../src/app/dashboard/shared/shared.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__dashboard_routing_module__ = __webpack_require__("../../../../../src/app/dashboard/dashboard-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__common_profile_profile_service__ = __webpack_require__("../../../../../src/app/dashboard/common/profile/profile.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__common_storages_storage_service__ = __webpack_require__("../../../../../src/app/dashboard/common/storages/storage.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__menu_menu_component__ = __webpack_require__("../../../../../src/app/dashboard/menu/menu.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__dashboard_component__ = __webpack_require__("../../../../../src/app/dashboard/dashboard.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__common_storages_storages_component__ = __webpack_require__("../../../../../src/app/dashboard/common/storages/storages.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__common_storages_storage_item_storage_item_component__ = __webpack_require__("../../../../../src/app/dashboard/common/storages/storage-item/storage-item.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__common_profile_profile_component__ = __webpack_require__("../../../../../src/app/dashboard/common/profile/profile.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__common_products_products_component__ = __webpack_require__("../../../../../src/app/dashboard/common/products/products.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_cdk__ = __webpack_require__("../../../cdk/@angular/cdk.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__infrastructure_pipes_filter_pipe__ = __webpack_require__("../../../../../src/app/infrastructure/pipes/filter.pipe.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__dashboard_shared_shared_module__ = __webpack_require__("../../../../../src/app/dashboard/shared/shared.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__dashboard_routing_module__ = __webpack_require__("../../../../../src/app/dashboard/dashboard-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__common_profile_profile_service__ = __webpack_require__("../../../../../src/app/dashboard/common/profile/profile.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__common_storages_storage_service__ = __webpack_require__("../../../../../src/app/dashboard/common/storages/storage.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__menu_menu_component__ = __webpack_require__("../../../../../src/app/dashboard/menu/menu.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__dashboard_component__ = __webpack_require__("../../../../../src/app/dashboard/dashboard.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__common_storages_storages_component__ = __webpack_require__("../../../../../src/app/dashboard/common/storages/storages.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__common_storages_storage_item_storage_item_component__ = __webpack_require__("../../../../../src/app/dashboard/common/storages/storage-item/storage-item.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__common_profile_profile_component__ = __webpack_require__("../../../../../src/app/dashboard/common/profile/profile.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__common_products_products_component__ = __webpack_require__("../../../../../src/app/dashboard/common/products/products.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__common_storages_storage_details_storage_details_component__ = __webpack_require__("../../../../../src/app/dashboard/common/storages/storage-details/storage-details.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1308,6 +1481,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 // Services
 
 
+// Angular materials
+
 // Components
 
 
@@ -1315,7 +1490,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-// Angular materials
 
 var DashboardModule = (function () {
     function DashboardModule() {
@@ -1327,28 +1501,31 @@ DashboardModule = __decorate([
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["j" /* ReactiveFormsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_cdk__["l" /* CdkTableModule */],
             // Routing
-            __WEBPACK_IMPORTED_MODULE_5__dashboard_routing_module__["a" /* DashboardRoutingModule */],
+            __WEBPACK_IMPORTED_MODULE_6__dashboard_routing_module__["a" /* DashboardRoutingModule */],
             // Custom modules
-            __WEBPACK_IMPORTED_MODULE_4__dashboard_shared_shared_module__["a" /* SharedModule */],
+            __WEBPACK_IMPORTED_MODULE_5__dashboard_shared_shared_module__["a" /* SharedModule */],
             // Angular materials
-            __WEBPACK_IMPORTED_MODULE_14__angular_material__["d" /* MdListModule */],
-            __WEBPACK_IMPORTED_MODULE_14__angular_material__["b" /* MdButtonModule */],
-            __WEBPACK_IMPORTED_MODULE_14__angular_material__["a" /* MdAutocompleteModule */],
-            __WEBPACK_IMPORTED_MODULE_14__angular_material__["c" /* MdInputModule */]
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["d" /* MdListModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["b" /* MdButtonModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["a" /* MdAutocompleteModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["c" /* MdInputModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["g" /* MdTableModule */]
         ],
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_9__dashboard_component__["a" /* DashboardComponent */],
-            __WEBPACK_IMPORTED_MODULE_8__menu_menu_component__["a" /* MenuComponent */],
-            __WEBPACK_IMPORTED_MODULE_12__common_profile_profile_component__["a" /* ProfileComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__common_storages_storages_component__["a" /* StoragesComponent */],
-            __WEBPACK_IMPORTED_MODULE_11__common_storages_storage_item_storage_item_component__["a" /* StorageItemComponent */],
-            __WEBPACK_IMPORTED_MODULE_3__infrastructure_pipes_filter_pipe__["a" /* FilterPipe */],
-            __WEBPACK_IMPORTED_MODULE_13__common_products_products_component__["a" /* ProductsComponent */]
+            __WEBPACK_IMPORTED_MODULE_11__dashboard_component__["a" /* DashboardComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__menu_menu_component__["a" /* MenuComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__common_profile_profile_component__["a" /* ProfileComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__common_storages_storages_component__["a" /* StoragesComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__common_storages_storage_item_storage_item_component__["a" /* StorageItemComponent */],
+            __WEBPACK_IMPORTED_MODULE_4__infrastructure_pipes_filter_pipe__["a" /* FilterPipe */],
+            __WEBPACK_IMPORTED_MODULE_15__common_products_products_component__["a" /* ProductsComponent */],
+            __WEBPACK_IMPORTED_MODULE_16__common_storages_storage_details_storage_details_component__["a" /* StorageDetailsComponent */]
         ],
         providers: [
-            __WEBPACK_IMPORTED_MODULE_6__common_profile_profile_service__["a" /* ProfileService */],
-            __WEBPACK_IMPORTED_MODULE_7__common_storages_storage_service__["a" /* StorageService */],
+            __WEBPACK_IMPORTED_MODULE_7__common_profile_profile_service__["a" /* ProfileService */],
+            __WEBPACK_IMPORTED_MODULE_8__common_storages_storage_service__["a" /* StorageService */],
         ]
     })
 ], DashboardModule);
@@ -2057,7 +2234,7 @@ var AuthGuard = (function () {
 }());
 AuthGuard = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["C" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__authentication_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__authentication_auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* Router */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__authentication_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__authentication_auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* Router */]) === "function" && _b || Object])
 ], AuthGuard);
 
 var _a, _b;
