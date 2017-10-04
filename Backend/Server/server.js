@@ -6,7 +6,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     session = require('express-session'),
     mongoDBStore = require('connect-mongodb-session')(session),
-    crypto = require("crypto-js"),
+    md5 = require('md5'),
     mongodb = require('./db'),
     objectId = require('mongodb').ObjectID,
     categoriesController = require('./controllers/categories');
@@ -49,6 +49,7 @@ function getStore() {
     console.log("getstore");
     if (mongoURL == null) // for test
         mongoURL = 'mongodb://userOON:av30aM6uovK8dstj@172.30.111.5:27017/sampledb';
+    // mongoURL = 'mongodb://127.0.0.1:27017'; // for local
     return new mongoDBStore({ uri: mongoURL });
 }
 app.use(session({
@@ -74,7 +75,6 @@ app.use(function(req, res, next) {
 
 var db = null,
     dbDetails = new Object();
-var secretPass = '89jsdfk891enjkasd89';
 
 var initDb = function(callback) {
     if (mongoURL == null) {
@@ -129,7 +129,7 @@ app.route('/login')
         if (db) {
             var col = db.collection('users');
             var log = req.body.login;
-            var passw = crypto.AES.encrypt(req.body.password, secretPass).toString();
+            var passw = md5(req.body.password).toString();
             col.findOne({ login: log, password: passw },
                 function(err, docs) {
                     if (err) {
@@ -166,13 +166,12 @@ app.route('/register')
         }
         if (db) {
             var col = db.collection('users');
-            var enc = crypto.AES.encrypt(req.body.password, secretPass).toString();
+            var enc = md5(req.body.password);
             var user = {
                 login: req.body.login,
                 email: req.body.email,
-                password: enc
+                password: enc.toString()
             }
-            console.log(enc);
             col.insert(user, function(err, result) {
                 if (err) {
                     console.log(err);
