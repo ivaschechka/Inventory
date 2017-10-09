@@ -6,11 +6,10 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     session = require('express-session'),
     mongoDBStore = require('connect-mongodb-session')(session),
-    md5 = require('md5'),
     mongodb = require('./db'),
     objectId = require('mongodb').ObjectID,
     categoriesController = require('./controllers/categories');
-
+authenticationController = require('./controllers/authentication');
 
 Object.assign = require('object-assign');
 
@@ -46,7 +45,6 @@ app.use(morgan('combined'))
 app.use(cookieParser());
 
 function getStore() {
-    console.log("getstore");
     if (mongoURL == null) // for test
         mongoURL = 'mongodb://userOON:av30aM6uovK8dstj@172.30.111.5:27017/sampledb';
     // mongoURL = 'mongodb://127.0.0.1:27017'; // for local
@@ -79,7 +77,7 @@ var db = null,
 var initDb = function(callback) {
     if (mongoURL == null) {
         return;
-        mongoURL = 'mongodb://127.0.0.1:27017'; // for local
+        // mongoURL = 'mongodb://127.0.0.1:27017'; // for local
     }
     mongodb.connect(mongoURL, function(err, conn) {
         if (err) {
@@ -122,67 +120,10 @@ app.get('/', function(req, res,  next) {
 });
 
 app.route('/login')
-    .post(function(req, res) {
-        if (!db) {
-            initDb(function(err) {});
-        }
-        if (db) {
-            var col = db.collection('users');
-            var log = req.body.login;
-            var passw = md5(req.body.password).toString();
-            col.findOne({ login: log, password: passw },
-                function(err, docs) {
-                    if (err) {
-                        console.log(err);
-                        req.session.authorized = false;
-                        res.sendStatus(500);
-                        return;
-                    }
-                    req.session.authorized = true;
-                    res.sendStatus(200);
-                });
-        }
-    });
+    .post(authenticationController.findByLogin); // Вход в систему
 app.route('/register')
-    .get(function(req, res) {
-        if (!db) {
-            initDb(function(err) {});
-        }
-        if (db) {
-            var col = db.collection('users');
-            col.find().toArray(function(err, docs) {
-                if (err) {
-                    console.log(err);
-                    res.sendStatus(500);
-                    return;
-                }
-                res.send(200, docs);
-            })
-        }
-    })
-    .post(function(req, res) {
-        if (!db) {
-            initDb(function(err) {});
-        }
-        if (db) {
-            var col = db.collection('users');
-            var enc = md5(req.body.password);
-            var user = {
-                login: req.body.login,
-                email: req.body.email,
-                password: enc.toString()
-            }
-            col.insert(user, function(err, result) {
-                if (err) {
-                    console.log(err);
-                    res.sendStatus(500);
-                    return;
-                }
-                req.session.authorized = true;
-                res.sendStatus(200);
-            });
-        }
-    });
+    .get(authenticationController.all) // Просмотр всех пользователей
+    .post(authenticationController.create); // Регистрация нового пользователя
 
 app.route('/categories')
     .get(categoriesController.all) // Просмотр всех категорий
